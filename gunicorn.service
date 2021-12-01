@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicon daemon
+After=network.target
+
+[Service]
+User=sonegillis
+Group=www-data
+WorkingDirectory=/home/apps/Cargo-tracking
+ExecStart=/usr/bin/gunicon --access-logfile --workers 3 --bind unix:/home/apps/Cargo-tracking/cargotracking.sock cargotracking.wsgi:application
+
+[Install]
+WantedBy=multi.user.target
