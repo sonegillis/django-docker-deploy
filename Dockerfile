@@ -6,6 +6,7 @@ ARG GIT_BRANCH=main
 ARG GIT_REPO
 ARG PROJECT_NAME
 ARG SSH_PRIVATE_KEY
+ARG DEBIAN_FRONTEND=noninteractive
 
 # ensure to change the secret key
 ENV SECRET_KEY=wl6d^o0u9@xj-7s3u=m^jm095g$yim%8a8%1o1za!8dtl3=)k9
@@ -26,7 +27,7 @@ RUN apt-get -y install python3.8
 RUN apt-get -y install python3-pip
 RUN apt-get -y install gunicorn
 # create a new user and add to www-data group
-RUN usermod -aG www-data gunicorn 
+RUN useradd -g www-data gunicorn 
 RUN echo $(cat ${SSH_PRIVATE_KEY}) > ~/.ssh/id_rsa
 # clone django project
 RUN mkdir /home/apps/${PROJECT_NAME}
