@@ -2,6 +2,8 @@ version: "3.7"
 
 services:
   mysql:
+    image: mysql:5.7
+    restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       # So you don't have to use root, but you can if you like
