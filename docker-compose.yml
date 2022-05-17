@@ -7,4 +7,4 @@ services:
       - DB_NAME=${MYSQL_DATABASE}
       - DB_HOST=${MYSQL_HOST}
       - DB_USER=${MYSQL_USER}
-      - DB_PASSWORD = ${MYSQL_PASSWORD}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
