@@ -8,3 +8,4 @@ services:
       - DB_HOST=${MYSQL_HOST}
       - DB_USER=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
+      - PROJECT_NAME=${PROJECT_NAME}
