@@ -34,7 +34,7 @@ RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 # clone django project
-RUN mkdir /home/apps/${PROJECT_NAME}
+RUN mkdir /home/apps && mkdir /home/apps/${PROJECT_NAME}
 WORKDIR /home/apps/$PROJECT_NAME
 RUN git clone $GIT_REPO . -b $GIT_BRANCH
 RUN ls
