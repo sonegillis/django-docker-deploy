@@ -10,10 +10,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # ensure to change the secret key
 ENV SECRET_KEY=wl6d^o0u9@xj-7s3u=m^jm095g$yim%8a8%1o1za!8dtl3=)k9
 ENV DEBUG=False
-ENV DB_NAME=dbname
-ENV DB_USER=user
-ENV DB_PASSWORD=notsecure
-ENV DB_HOST=dbhost
+ENV PORT=8000
 # install dependencies
 WORKDIR /
 RUN apt-get update
@@ -42,5 +39,5 @@ RUN pwd
 RUN pip3 install -r requirements.txt
 RUN python3 manage.py collectstatic
 RUN pip3 install gunicorn
-EXPOSE 8000
-ENTRYPOINT [ "sh", "-c",  "/usr/bin/gunicorn --workers 3 --bind :8000 $PROJECT_NAME.wsgi:application" ]
+EXPOSE ${PORT}
+ENTRYPOINT [ "sh", "-c",  "/usr/bin/gunicorn --workers 3 --bind :${PORT} $PROJECT_NAME.wsgi:application" ]
