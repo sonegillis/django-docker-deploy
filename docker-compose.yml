@@ -14,3 +14,4 @@ services:
       - DB_USER=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - PROJECT_NAME=${PROJECT_NAME}
+    command: "/usr/bin/gunicorn --workers 3 --bind :${PORT} ${PROJECT_NAME}.wsgi:application"
