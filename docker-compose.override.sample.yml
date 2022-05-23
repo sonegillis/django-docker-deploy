@@ -21,6 +21,9 @@ services:
       - your-network
     volumes:
       - ./mysql-db:/var/lib/mysql
+  app:
+    volumes:
+      - ${SOURCE_CODE_PATH}://home/apps/${PROJECT_NAME}
 
 networks:
   your-network:
