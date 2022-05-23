@@ -5,13 +5,13 @@ services:
     build:
       context: .
       args:
-        - GIT_REPO: ${GIT_REPO}
-        - GIT_BRANCH: ${GIT_BRANCH}
-        - PROJECT_NAME: ${PROJECT_NAME}
+        - GIT_REPO=${GIT_REPO}
+        - GIT_BRANCH=${GIT_BRANCH}
+        - PROJECT_NAME=${PROJECT_NAME}
     environment:
-      - DB_NAME=${MYSQL_DATABASE}
-      - DB_HOST=${MYSQL_HOST}
-      - DB_USER=${MYSQL_USER}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - PROJECT_NAME=${PROJECT_NAME}
     command: "/usr/bin/gunicorn --workers 3 --bind :${PORT} ${PROJECT_NAME}.wsgi:application"

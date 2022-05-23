@@ -40,4 +40,3 @@ RUN pip3 install -r requirements.txt
 RUN python3 manage.py collectstatic
 RUN pip3 install gunicorn
 EXPOSE ${PORT}
-ENTRYPOINT [ "sh", "-c",  "/usr/bin/gunicorn --workers 3 --bind :${PORT} $PROJECT_NAME.wsgi:application" ]
