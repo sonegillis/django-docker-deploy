@@ -24,7 +24,7 @@ RUN apt-get -y install python3-pip
 RUN apt-get -y install gunicorn
 RUN apt-get install -y libmysqlclient-dev
 RUN apt-get install -y libpq-dev
-RUN apt-get install -y python3-Psycopg2
+RUN apt-get install -y python3-psycopg2
 # create a new user and add to www-data group
 RUN useradd -g www-data gunicorn
 RUN mkdir /root/.ssh && touch /root/.ssh/id_rsa

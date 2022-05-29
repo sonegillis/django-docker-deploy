@@ -14,4 +14,8 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - PROJECT_NAME=${PROJECT_NAME}
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
     command: "/usr/bin/gunicorn --workers 3 --bind :${PORT} ${PROJECT_NAME}.wsgi:application"
