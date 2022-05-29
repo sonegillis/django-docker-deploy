@@ -18,4 +18,4 @@ services:
       driver: json-file
       options:
         max-size: 50m
-    command: "/usr/bin/gunicorn --workers 3 --bind :${PORT} ${PROJECT_NAME}.wsgi:application"
+    command: "/usr/bin/gunicorn --workers 3 --bind :${PORT} /home/app/${PROJECT_NAME}.wsgi:application"
