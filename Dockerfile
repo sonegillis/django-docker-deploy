@@ -36,7 +36,6 @@ RUN mkdir -p /home/apps && mkdir -p /home/apps/${PROJECT_NAME}
 WORKDIR /home/apps/$PROJECT_NAME
 RUN git clone $GIT_REPO . -b $GIT_BRANCH
 RUN ls
-RUN pwd
-RUN pip3 install -r requirements.txt
 RUN python3 manage.py collectstatic
+RUN pip3 install -r requirements.txt
 RUN pip3 install gunicorn
