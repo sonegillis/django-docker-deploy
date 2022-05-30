@@ -10,7 +10,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 # ensure to change the secret key
 ENV SECRET_KEY=wl6d^o0u9@xj-7s3u=m^jm095g$yim%8a8%1o1za!8dtl3=)k9
 ENV DEBUG=False
-ENV PORT=8000
 # install dependencies
 WORKDIR /
 RUN apt-get update
